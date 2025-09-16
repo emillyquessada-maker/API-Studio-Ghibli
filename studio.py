@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import json
 
 # Imagens dos personagens
 IMAGES = {
@@ -168,3 +169,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
