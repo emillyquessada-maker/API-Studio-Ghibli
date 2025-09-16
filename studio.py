@@ -1,11 +1,6 @@
 import streamlit as st
 import requests
 
-# Links
-FILM_URL = "https://ghibliapi.vercel.app/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49"
-VEHICLES_URL = "https://ghibliapi.vercel.app/vehicles/"
-LOCATIONS_URL = "https://ghibliapi.vercel.app/locations/"
-
 # Imagens dos personagens
 IMAGES = {
     "Totoro": "https://i.pinimg.com/736x/3f/df/c3/3fdfc3c44e785d234cac00a90b88d2a8.jpg",
@@ -22,23 +17,16 @@ IMAGES = {
 
 def get_totoro_data():
     try:
-        response = requests.get(FILM_URL)
+        response = requests.get("https://ghibliapi.vercel.app/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49")
         response.raise_for_status()
         return response.json()
     except requests.RequestException:
         return None
 
-def get_vehicles_data():
-    try:
-        response = requests.get(VEHICLES_URL)
-        response.raise_for_status()
-        return response.json()
-    except requests.RequestException:
-        return None
 
 def get_locations_data():
     try:
-        response = requests.get(LOCATIONS_URL)
+        response = requests.get("https://ghibliapi.vercel.app/locations/")
         response.raise_for_status()
         return response.json()
     except requests.RequestException:
@@ -143,14 +131,14 @@ def personagens_section():
     }
 
     for nome, dados in personagens.items():
-        cols = st.columns([1, 2, 3])
-        with cols[0]:
+        colunas = st.columns([1, 2, 3])
+        with colunas[0]:
             if nome in IMAGES:
                 st.image(IMAGES[nome], width=100)
-        with cols[1]:
+        with colunas[1]:
             st.markdown(f"**{nome}**")
             st.markdown(f"_{dados['descricao']}_")
-        with cols[2]:
+        with colunas[2]:
             st.markdown(f"🧠 **Curiosidade:** {dados['curiosidade']}")
         st.markdown("---")
 
@@ -180,4 +168,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
