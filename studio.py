@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-# URLs
+# Links
 FILM_URL = "https://ghibliapi.vercel.app/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49"
 VEHICLES_URL = "https://ghibliapi.vercel.app/vehicles/"
 LOCATIONS_URL = "https://ghibliapi.vercel.app/locations/"
@@ -19,7 +19,7 @@ IMAGES = {
     "Kanta": "https://i.pinimg.com/736x/23/26/8f/23268fe977c989915ef4e95be0ff1e97.jpg"
 }
 
-# --- Funções auxiliares ---
+
 def get_totoro_data():
     try:
         response = requests.get(FILM_URL)
@@ -154,11 +154,11 @@ def personagens_section():
             st.markdown(f"🧠 **Curiosidade:** {dados['curiosidade']}")
         st.markdown("---")
 
-# --- APP PRINCIPAL ---
+
 def main():
     st.set_page_config(page_title="Meu Amigo Totoro", page_icon="🍂")
 
-    # Cabeçalho
+    
     st.image(IMAGES["Totoro"], use_column_width=True)
     st.title("🌿 Meu Amigo Totoro")
     st.write("Explore informações sobre esse clássico do Studio Ghibli.")
@@ -180,3 +180,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
