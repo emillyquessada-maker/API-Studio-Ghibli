@@ -167,6 +167,6 @@ def main():
     st.markdown("---")
     st.caption("📡 Dados fornecidos pela API Studio Ghibli — https://ghibliapi.vercel.app")
 
-if __name__ == "__main__":
-    main()
+
+main()
 
